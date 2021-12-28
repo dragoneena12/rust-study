@@ -1,31 +1,16 @@
-use section10::{self, Summary, NewsArticle, Tweet};
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
 
 fn main() {
-    let article = NewsArticle {
-        // ペンギンチームがスタンレーカップチャンピオンシップを勝ち取る！
-        headline: String::from("Penguins win the Stanley Cup Championship!"),
-        // アメリカ、ペンシルベニア州、ピッツバーグ
-        location: String::from("Pittsburgh, PA, USA"),
-        // アイスバーグ
-        author: String::from("Iceburgh"),
-        // ピッツバーグ・ペンギンが再度NHL(National Hockey League)で最強のホッケーチームになった
-        content: String::from(
-            "The Pittsburgh Penguins once again are the best \
-             hockey team in the NHL.",
-        ),
-    };
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
 
-    println!("New article available! {}", article.summarize());
-
-    let tweet = Tweet {
-        username: String::from("horse_ebooks"),
-        content: String::from(
-            // もちろん、ご存知かもしれませんがね、みなさん
-            "of course, as you probably already know, people",
-        ),
-        reply: false,
-        retweet: false,
-    };
-
-    println!("1 new tweet: {}", tweet.summarize());
+    let result = longest(string1.as_str(), string2);
+    // 最長の文字列は、{}です
+    println!("The longest string is {}", result);
 }
